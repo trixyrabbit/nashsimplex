@@ -48,32 +48,18 @@ Crrated 2/14/2016
 				 while(scan.hasNext()){
 						 String payout = scan.next();
 						 
-						 //System.out.println(payout);
-						 
 						 String[] parts = payout.split(",");
 						 int rowPayout = Integer.parseInt(parts[0]); // get row payoff
 						 int colPayout = Integer.parseInt(parts[1]); // get column payoff
 						 Payout temp = new Payout(rowPayout, colPayout); //<p1, p2>
 						 row.add(rowPayout/(Double)1.0);
 						 col.add(colPayout/(Double)1.0);
-						 //System.out.println(temp);
-						 //System.out.println(column.size());
-						 column.add(temp); //add the payout cell to row array	 <p1, p2>   <p2, p2> ...  <p1, p2>				 
-						 
-						 /*
-						 for(int j = 0; j<column.size(); j++)
-						 {
-							 System.out.println(column.get(j).getP1() + " " +  column.get(j).getp2());
-						 }
-						 */
-						 //System.out.println(parts[0] + " and " + parts[1]);
+
+						 column.add(temp); 
 
 				 
 				 } //end column loop			 
-				 normForm.add(column); //append the column array list to normForm  <p1, p2>   <p2, p2> ...  <p1, p2>	
-																				// <p1, p2>   <p2, p2> ...  <p1, p2>	
-																				//   ...			...		...
-																				// <p1, p2>   <p2, p2> ...  <p1, p2>	
+				 normForm.add(column); 	
 																				
 				 rowp.add(row);
 				 colp.add(col);
@@ -83,15 +69,6 @@ Crrated 2/14/2016
 			 
 			 }//end row loop
 			
-			/* 
-			for(int i = 0; i<normForm.size(); i++)
-			 {
-				 ArrayList<Payout> temp  = normForm.get(i);
-				 for(int j = 0; j<temp.size(); j++)
-				 {
-					 System.out.println(temp.get(j).getP1() + " " +  temp.get(j).getp2());
-				 }
-			 }*/
 			 
 			 br.close();	 
 		 } //end try
@@ -194,6 +171,8 @@ Crrated 2/14/2016
 		//protected static ArrayList<ArrayList<Payout>> normForm;
 		public Payout[] getColumn(Payout[][] array, int index){
 			Payout[] column = new Payout[normalForm.length];
+			System.out.println(array.length +" " + normalForm.length  + " " + column.length);
+			System.out.println(array);
 			for(int i=0; i<column.length; i++){
 			   column[i] = array[i][index];
 			}
@@ -238,7 +217,7 @@ Crrated 2/14/2016
 
 
 			 //calculates pure strat row player dominant strat
-					  for(int i = 0; i<normalForm.length; i++) //extract rows
+		for(int i = 0; i<normalForm[0].length; i++) //extract rows
 					 {
 						    column = new Payout[normalForm.length];
 							//Payout[] temp  = normalForm[i];
@@ -300,10 +279,10 @@ Crrated 2/14/2016
 		
 		
 		public void mixNash(){
-		System.out.println("There is a mixed start Nash Equilibrium at + \n");
+		System.out.println("There is a mixed start Nash Equilibrium at \n");
 			
 			
-			simplex row = new simplex(rowp);
+			simplex2 row = new simplex2(rowp);
 			simplex col = new simplex(colp);
 			
 			System.out.println("Row player: " + row);

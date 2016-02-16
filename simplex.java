@@ -133,21 +133,6 @@ public class simplex {
 		double max = 0.0;
 		ArrayList<Double> result = DoSimplex(simplex, max);
 		int size = result.size();
-		
-		/*
-		if(size ==0 )
-		{
-			System.out.println("No Mixxed Strategy Nash Equalibrium Solution Exists");
-			return result;
-		}
-		
-		System.out.println("Mixxed Strategy Result: " + res);
-		for(int i = 0; i<result.size() - 2; i++)
-		{
-			System.out.println(result);
-		}
-		*/
-		//double res = result.get(size-2) - result.get(size -1);
 		return result;
 	}
 	
@@ -282,6 +267,7 @@ public class simplex {
 		if(noSolution)
 		{
 			ArrayList<Double> vec = new ArrayList<Double>();
+			System.out.println("no solution:");
 			return vec;
 		}
 		
@@ -394,49 +380,7 @@ static void trantest2()
 			
 			//ArrayList<ArrayList<Double>> it = transpose(normalvect);
 			PrepareRun(normalvect2);
-			//PrepareRun(it);
-/*
-			ArrayList<ArrayList<Double>> transposed = new ArrayList<ArrayList<Double>>();
-			
-			transposed = transpose(normalvect);
-			System.out.println("Normal  \n");
-			for(int i = 0; i<normalvect.size(); i++)
-				 {
-					 ArrayList<Double> temp  = normalvect.get(i);
-					 String row = new String("");
-					 for(int j = 0; j<temp.size(); j++)
-					 {
-						row+= temp.get(j) + "\t";
-					 }
-					  System.out.println(row);
-			 }
-			 
-			System.out.println("Transposed:  \n");
-			for(int i = 0; i<transposed.size(); i++)
-				 {
-					 ArrayList<Double> temp  = transposed.get(i);
-					 String row = new String("");
-					 for(int j = 0; j<temp.size(); j++)
-					 {
-						row+= temp.get(j) + "\t";
-					 }
-					  System.out.println(row);
-			 }
-			transposed = transpose(transposed);
-			
-			System.out.println("reverted:  \n");
-			for(int i = 0; i<transposed.size(); i++)
-				 {
-					 ArrayList<Double> temp  = transposed.get(i);
-					 String row = new String("");
-					 for(int j = 0; j<temp.size(); j++)
-					 {
-						row+= temp.get(j) + "\t";
-					 }
-					  System.out.println(row);
-			 }
-	}
-	*/
+
 	}
 
 }
